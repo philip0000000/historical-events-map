@@ -1,0 +1,100 @@
+﻿html, body, #root {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 160px);
+}
+
+#map {
+    width: 100%;
+    flex: 1;
+    z-index: 1;
+}
+
+/* --- slider --- */
+
+.checkbox-slider-container {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.range {
+    position: absolute;
+    background: #888;
+    height: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: calc(100% - 60px);
+    cursor: e-resize;
+}
+
+.range-slider {
+    position: relative;
+    width: 300px;
+    height: 5px;
+    margin: 7px;
+}
+
+.track {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 3px;
+    height: 25px; /* Adjust this value to your desired thickness */
+    top: 50%;
+    transform: translateY(-50%); /* This will vertically center the track */
+}
+
+.thumb {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #555;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.thumb-left {
+    /* Reposition the left thumb to be below the track */
+    z-index: 2;
+    bottom: 0;
+    transform: translateY(100%);
+}
+
+.thumb-right {
+    /* Reposition the right thumb to be above the track */
+    z-index: 3;
+    top: 0;
+    transform: translateY(-190%);
+}
+
+.thumb::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+
+.thumb-left::before {
+    /* Reposition the triangle to touch the track */
+    bottom: 20px;
+    border-bottom: 10px solid #555;
+}
+
+.thumb-right::before {
+    /* Reposition the triangle to touch the track */
+    top: 20px;
+    border-top: 10px solid #555;
+}
